@@ -8,20 +8,20 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDTicfSPtJP7HK
 
 // ── Page-level state ────────────────────────────────────────────────────────
 let quizState = {
-  total:     0,
-  answered:  0,
-  correct:   0,
-  week:      "",
+  total: 0,
+  answered: 0,
+  correct: 0,
+  week: "",
 };
 
 // ── Entry point ─────────────────────────────────────────────────────────────
 function initQuizzes() {
   // Reset state on every (re-)load
   quizState = {
-    total:    0,
+    total: 0,
     answered: 0,
-    correct:  0,
-    week:     getWeekFromPage(),
+    correct: 0,
+    week: getWeekFromPage(),
   };
 
   // Remove leftover submission panel from a previous instant-nav load
@@ -37,7 +37,7 @@ function initQuizzes() {
     if (!items.length) return;
 
     let correctIndex = -1;
-    let answered     = false;
+    let answered = false;
 
     // ── Find and hide the pre-checked correct answer ───────────────────────
     items.forEach(function (item, index) {
@@ -45,7 +45,7 @@ function initQuizzes() {
       if (!cb) return;
       if (cb.checked) {
         correctIndex = index;
-        cb.checked   = false;
+        cb.checked = false;
       }
       cb.removeAttribute("disabled");
     });
@@ -103,15 +103,15 @@ function recordAnswer(isCorrect) {
 function showSubmissionPanel() {
   const score = quizState.correct;
   const total = quizState.total;
-  const pct   = Math.round((score / total) * 100);
+  const pct = Math.round((score / total) * 100);
 
   const grade =
     pct >= 80 ? "Pass 🎉" :
-    pct >= 60 ? "Needs Review ⚠️" :
-                "Keep Practising 📚";
+      pct >= 60 ? "Needs Review ⚠️" :
+        "Keep Practising 📚";
 
   const panel = document.createElement("div");
-  panel.id        = "quiz-submit-panel";
+  panel.id = "quiz-submit-panel";
   panel.className = `quiz-submit-panel grade-${gradeClass(pct)}`;
   panel.innerHTML = `
     <div class="quiz-score-summary">
@@ -147,12 +147,12 @@ function showSubmissionPanel() {
 }
 
 function submitScore() {
-  const nameEl   = document.getElementById("quiz-student-name");
-  const emailEl  = document.getElementById("quiz-student-email");
-  const btn      = document.getElementById("quiz-submit-btn");
+  const nameEl = document.getElementById("quiz-student-name");
+  const emailEl = document.getElementById("quiz-student-email");
+  const btn = document.getElementById("quiz-submit-btn");
   const statusEl = document.getElementById("quiz-submit-status");
 
-  const name  = nameEl.value.trim();
+  const name = nameEl.value.trim();
   const email = emailEl.value.trim();
 
   if (!name) {
@@ -166,16 +166,16 @@ function submitScore() {
     return;
   }
 
-  btn.disabled        = true;
+  btn.disabled = true;
   statusEl.textContent = "Submitting…";
 
   const payload = {
-    student_name:  name,
+    student_name: name,
     student_email: email,
-    week:          quizState.week,
-    score:         quizState.correct,
-    total:         quizState.total,
-    percentage:    Math.round((quizState.correct / quizState.total) * 100),
+    week: quizState.week,
+    score: quizState.correct,
+    total: quizState.total,
+    percentage: Math.round((quizState.correct / quizState.total) * 100),
   };
 
   // URLSearchParams → sent as application/x-www-form-urlencoded
@@ -185,21 +185,21 @@ function submitScore() {
 
   fetch(APPS_SCRIPT_URL, {
     method: "POST",
-    mode:   "no-cors",   // response is opaque — .then() fires on network success
-    body:   body,
+    mode: "no-cors",   // response is opaque — .then() fires on network success
+    body: body,
   })
-  .then(function () {
-    statusEl.innerHTML =
-      "✅ <strong>Score submitted!</strong> Your teacher has been notified.";
-    btn.style.display = "none";
-    nameEl.disabled   = true;
-    emailEl.disabled  = true;
-  })
-  .catch(function () {
-    statusEl.textContent =
-      "❌ Submission failed — please tell your teacher your score manually.";
-    btn.disabled = false;
-  });
+    .then(function () {
+      statusEl.innerHTML =
+        "✅ <strong>Score submitted!</strong> Your teacher has been notified.";
+      btn.style.display = "none";
+      nameEl.disabled = true;
+      emailEl.disabled = true;
+    })
+    .catch(function () {
+      statusEl.textContent =
+        "❌ Submission failed — please tell your teacher your score manually.";
+      btn.disabled = false;
+    });
 }
 
 // ── Utilities ────────────────────────────────────────────────────────────────
