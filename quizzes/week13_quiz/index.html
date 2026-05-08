@@ -1,0 +1,1161 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../week12_quiz/">
+      
+      
+        <link rel="next" href="../week14_quiz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Week 13 — Git & GitHub - Pylogicx Academy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/quiz.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-13-quiz-git-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pylogicx Academy" class="md-header__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pylogicx Academy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 13 — Git & GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pylogicx Academy" class="md-nav__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pylogicx Academy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 1 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 1 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week01_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Variables & F-strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week02_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — Conditionals & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week03_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Loops & os Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week04_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — Functions & Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week05_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Dictionaries & JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 2 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 2 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week06_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — APIs & requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week07_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week08_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — Data Analysis with pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week09_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 — Email Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 — Automation Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 3 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 3 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 — Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 — Error Handling & Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 13 — Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week14_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 14 — Code Quality & Refactoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 15 — Interview Prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-13-quiz-git-github">Week 13 Quiz — Git &amp; GitHub</h1>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 1: git init</p>
+<p>What does <code>git init</code> do?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Downloads a repository from GitHub</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) Creates your first commit</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C) Initialises a new local Git repository in the current folder (creates a hidden <code>.git/</code> directory)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Connects your folder to a GitHub remote</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: C) Initialises a new local Git repository</strong></p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>my-project
+<span class="nb">cd</span><span class="w"> </span>my-project
+git<span class="w"> </span>init
+<span class="c1"># → Initialized empty Git repository in .../my-project/.git/</span>
+</code></pre></div>
+<p>The <code>.git/</code> folder contains the entire history and configuration. Delete <code>.git/</code> and you lose all version history (but your files remain).</p>
+<p>You only run <code>git init</code> once per project. For existing GitHub repos, use <code>git clone</code> instead — it initialises Git AND downloads the repo.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 2: Staging vs Committing</p>
+<p>What is the difference between <code>git add</code> and <code>git commit</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>git add</code> saves to GitHub; <code>git commit</code> saves locally</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>git add</code> stages changes (marks them for inclusion); <code>git commit</code> saves the staged snapshot to the local history</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>git add</code> creates a branch; <code>git commit</code> merges it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) They do the same thing — <code>git add</code> is just an older alias</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>git add</code> stages; <code>git commit</code> saves</strong></p>
+<p>Git has a three-area model:</p>
+<div class="highlight"><pre><span></span><code>Working directory → [git add] → Staging area → [git commit] → Local history
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>report.py<span class="w">          </span><span class="c1"># stage one file</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                  </span><span class="c1"># stage everything changed</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add report&quot;</span><span class="w"> </span><span class="c1"># save staged snapshot with a message</span>
+</code></pre></div>
+<p>The staging area lets you choose <em>exactly</em> what goes into each commit. You might change 5 files but commit them as 2 separate, logical commits — one for the feature, one for the bug fix.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 3: git status</p>
+<p>What information does <code>git status</code> show?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) The last 10 commits on the current branch</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Which files are modified, staged, or untracked in the working directory</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) The current branch's difference from the remote</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) A list of all branches</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Modified, staged, and untracked files</strong></p>
+<p><code>git status</code> output:
+<div class="highlight"><pre><span></span><code>On branch main
+
+Changes to be committed:     ← staged (green)
+  modified: app.py
+
+Changes not staged:          ← modified but not staged (red)
+  modified: utils.py
+
+Untracked files:             ← new files Git doesn&#39;t know about
+  new_feature.py
+</code></pre></div></p>
+<p>Run <code>git status</code> constantly — before adding, before committing, after pulling. It's your orientation tool.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 4: git log</p>
+<p>What does <code>git log --oneline</code> show?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) All files changed in the last commit</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) A condensed list of commits — one line each showing hash and message</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Branches that haven't been merged yet</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) The diff between current and previous commit</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Condensed commit history — one line per commit</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline
+<span class="c1"># a3f9b12 Add email automation module</span>
+<span class="c1"># 7d42c01 Fix CSV export bug</span>
+<span class="c1"># 2b91e5f Initial commit</span>
+</code></pre></div>
+<p>Other useful <code>git log</code> variants:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w">                    </span><span class="c1"># full details — author, date, full message</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5<span class="w">       </span><span class="c1"># last 5 commits</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w">  </span><span class="c1"># ASCII branch graph</span>
+git<span class="w"> </span>log<span class="w"> </span>--author<span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="w">   </span><span class="c1"># commits by specific author</span>
+git<span class="w"> </span>log<span class="w"> </span>filename.py<span class="w">        </span><span class="c1"># commits that touched a specific file</span>
+</code></pre></div></p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 5: Branches</p>
+<p>Why do developers work on feature branches instead of directly on <code>main</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>main</code> is read-only — Git prevents commits to it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Branches isolate work-in-progress so <code>main</code> stays stable and deployable at all times</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Feature branches are faster because they skip the staging area</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) GitHub requires branches — you can't push directly to <code>main</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Branches keep <code>main</code> stable</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>feature/email-report<span class="w">   </span><span class="c1"># create branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feature/email-report<span class="w">  </span><span class="c1"># switch to it</span>
+<span class="c1"># or in one command:</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/email-report
+
+<span class="c1"># work, commit, test...</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature/email-report<span class="w">    </span><span class="c1"># merge when ready</span>
+</code></pre></div>
+<p>If the feature breaks something, <code>main</code> is unaffected. Multiple developers can work on different features simultaneously without interfering with each other.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 6: .gitignore</p>
+<p>Why do you add <code>.env</code> to <code>.gitignore</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>.env</code> files cause syntax errors when pushed to GitHub</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>.env</code> contains secrets (API keys, passwords) that should never be in version control — even in private repos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Git cannot track <code>.env</code> files — they're binary</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>.env</code> files are too large for GitHub</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>.env</code> contains secrets that must never be committed</strong></p>
+<div class="highlight"><pre><span></span><code># .gitignore
+.env
+__pycache__/
+*.pyc
+site/
+.DS_Store
+</code></pre></div>
+<p>Once a secret is in Git history, it's there forever — even if you delete the file in a later commit, it lives in <code>git log</code>. Secrets pushed to GitHub (even private) can be exposed by attackers, GitHub security scanning, or accidental repo visibility changes.</p>
+<p><strong>The rule:</strong> never commit <code>.env</code>. Add it to <code>.gitignore</code> before your first <code>git add</code>.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 7: git push vs git pull</p>
+<p>What is the difference between <code>git push</code> and <code>git pull</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A) <code>push</code> uploads local commits to the remote; <code>pull</code> downloads remote commits to local</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) <code>push</code> creates a new branch; <code>pull</code> merges branches</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>push</code> is for files; <code>pull</code> is for commits</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) They are the same — <code>pull</code> is the older command</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: A) <code>push</code> uploads; <code>pull</code> downloads</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w">    </span><span class="c1"># upload local main → remote main</span>
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">    </span><span class="c1"># download remote main → local main (and merge)</span>
+</code></pre></div>
+<p><code>git pull</code> = <code>git fetch</code> + <code>git merge</code>.</p>
+<p>Typical workflow:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w">                 </span><span class="c1"># get latest changes from team</span>
+<span class="c1"># ... make changes ...</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Feature X&quot;</span>
+git<span class="w"> </span>push<span class="w">                 </span><span class="c1"># share your changes</span>
+</code></pre></div></p>
+<p>Always pull before pushing when collaborating — this prevents conflicts.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 8: Pull Requests</p>
+<p>What is a Pull Request (PR) on GitHub?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) A request to download a file from GitHub</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) A git command that merges two branches automatically</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C) A request for your branch to be reviewed and merged into another branch (usually <code>main</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) A way to pull changes from a remote without creating a local branch</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: C) A request for code review and merge</strong></p>
+<p>Pull Request workflow:
+<div class="highlight"><pre><span></span><code>1. Create a feature branch locally
+2. Push the branch to GitHub
+3. Open a PR on GitHub (your branch → main)
+4. Team reviews the code, leaves comments
+5. You address feedback with new commits
+6. PR is approved and merged into main
+7. Delete the feature branch
+</code></pre></div></p>
+<p>PRs are the standard collaboration mechanism in professional software teams. They create a permanent record of what changed, why, and who reviewed it.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 9: git clone</p>
+<p>What does <code>git clone https://github.com/user/repo.git</code> do?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Creates an empty local repository linked to GitHub</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Downloads the full repository (all files, history, branches) to a new local folder</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Downloads only the latest version of the files, without history</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Copies the repository to your GitHub account</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Downloads the full repository including all history</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/user/repo.git
+<span class="c1"># creates a folder called &quot;repo/&quot; with:</span>
+<span class="c1"># - all files</span>
+<span class="c1"># - full git history (git log works immediately)</span>
+<span class="c1"># - the remote &quot;origin&quot; already configured</span>
+</code></pre></div>
+<p>After cloning, you can immediately run <code>git pull</code> to get updates, <code>git push</code> to contribute back (if you have permission), and <code>git log</code> to see the full history.</p>
+<p><code>git clone</code> is how you start working on any existing project.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 13 — Question 10: Merge Conflict</p>
+<p>Two developers edited the same line in the same file. They both push to <code>main</code>. What happens?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Git automatically picks the newer version</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) Both changes are combined automatically</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C) A merge conflict occurs — Git marks the conflict in the file and the developer must manually resolve it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Git raises an error and reverts the second push</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: C) A merge conflict — must be resolved manually</strong></p>
+<p>Git marks the conflict with special markers:
+<div class="highlight"><pre><span></span><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+print(&quot;Alice&#39;s version&quot;)
+=======
+print(&quot;Bob&#39;s version&quot;)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/bob-changes
+</code></pre></div></p>
+<p>To resolve:
+1. Open the file and decide which version (or a combination) is correct
+2. Delete the conflict markers
+3. <code>git add</code> the resolved file
+4. <code>git commit</code> to complete the merge</p>
+<p>Conflicts are normal in team workflows. The best prevention: communicate with your team, pull before you start working, and keep commits small and focused.</p>
+</details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>

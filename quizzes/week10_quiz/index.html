@@ -1,0 +1,1212 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../week09_quiz/">
+      
+      
+        <link rel="next" href="../week11_quiz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Week 10 — Automation Pipelines - Pylogicx Academy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/quiz.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-10-quiz-automation-pipelines-file-handling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pylogicx Academy" class="md-header__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pylogicx Academy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 10 — Automation Pipelines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pylogicx Academy" class="md-nav__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pylogicx Academy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 1 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 1 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week01_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Variables & F-strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week02_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — Conditionals & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week03_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Loops & os Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week04_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — Functions & Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week05_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Dictionaries & JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 2 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 2 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week06_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — APIs & requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week07_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week08_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — Data Analysis with pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week09_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 — Email Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 — Automation Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 3 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 3 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 — Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 — Error Handling & Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week13_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 13 — Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week14_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 14 — Code Quality & Refactoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 15 — Interview Prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-10-quiz-automation-pipelines-file-handling">Week 10 Quiz — Automation Pipelines &amp; File Handling</h1>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 1: os.makedirs() with exist_ok</p>
+<p>What does <code>exist_ok=True</code> do in <code>os.makedirs()</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;output/reports/2024&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Overwrites any existing files in the folder</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Suppresses the error if the directory already exists — creates it only if it doesn't exist yet</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Creates the folder only if the parent <code>output/</code> exists</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Asks the user for confirmation before creating</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Suppresses the error if the directory already exists</strong></p>
+<p>Without <code>exist_ok=True</code>:
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>   <span class="c1"># FileExistsError if &quot;output&quot; already exists</span>
+</code></pre></div></p>
+<p>With <code>exist_ok=True</code>:
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># safe to call repeatedly</span>
+</code></pre></div></p>
+<p><code>os.makedirs()</code> (note the <code>s</code>) also creates <strong>intermediate directories</strong> — if <code>output/</code> doesn't exist, it creates <code>output/</code> and then <code>output/reports/</code> and then <code>output/reports/2024/</code> all in one call. This is unlike <code>os.mkdir()</code> which only creates one level.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 2: pathlib.Path</p>
+<p>What is the advantage of <code>pathlib.Path</code> over string-based paths?</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">base</span> <span class="o">/</span> <span class="s2">&quot;2024&quot;</span> <span class="o">/</span> <span class="s2">&quot;report.csv&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>Path</code> is faster than strings for file operations</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>Path</code> uses <code>/</code> for joining (works on all OS), has built-in methods, and avoids string concatenation bugs</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>Path</code> only works on Linux — use strings on Windows</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>Path</code> automatically creates the directories if they don't exist</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>/</code> operator for joining, built-in methods, cross-platform</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;2024&quot;</span> <span class="o">/</span> <span class="s2">&quot;report.csv&quot;</span>
+<span class="c1"># → data/2024/report.csv  (Linux/Mac) or data\2024\report.csv (Windows)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>      <span class="c1"># True/False</span>
+<span class="n">p</span><span class="o">.</span><span class="n">suffix</span>        <span class="c1"># &quot;.csv&quot;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">stem</span>          <span class="c1"># &quot;report&quot;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">parent</span>        <span class="c1"># Path(&quot;data/2024&quot;)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">name</span>          <span class="c1"># &quot;report.csv&quot;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>   <span class="c1"># read file content</span>
+<span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># create directories</span>
+</code></pre></div>
+<p>String-based paths like <code>"data/" + "2024/" + "report.csv"</code> are fragile and break on Windows (<code>\</code> vs <code>/</code>). <code>pathlib</code> handles separators automatically.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 3: glob.glob() Pattern Matching</p>
+<p>What does this code do?</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/*.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A) Returns a list of all <code>.csv</code> files in the <code>data/</code> folder</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) Deletes all <code>.csv</code> files in <code>data/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Renames all <code>.csv</code> files in <code>data/</code> to <code>.txt</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Returns <code>True</code> if any <code>.csv</code> file exists in <code>data/</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: A) Returns a list of all <code>.csv</code> files in the <code>data/</code> folder</strong></p>
+<p><code>glob.glob()</code> uses shell-style wildcards:</p>
+<div class="highlight"><pre><span></span><code><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/*.csv&quot;</span><span class="p">)</span>         <span class="c1"># all CSVs in data/</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/**/*.csv&quot;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># CSVs in data/ and subdirectories</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">)</span>               <span class="c1"># all Python files in current folder</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;report_202?.txt&quot;</span><span class="p">)</span>    <span class="c1"># ? matches exactly one character</span>
+</code></pre></div>
+<p>It returns a list of matching path strings. If no files match, it returns an empty list (no error).</p>
+<p><code>pathlib</code> equivalent:
+<div class="highlight"><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.csv&quot;</span><span class="p">))</span>
+</code></pre></div></p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 4: shutil.copy() vs shutil.move()</p>
+<p>What is the difference between <code>shutil.copy()</code> and <code>shutil.move()</code>?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A) <code>copy()</code> duplicates the file (original stays); <code>move()</code> relocates it (original is gone)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) <code>copy()</code> copies the folder; <code>move()</code> copies the file</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) They do the same thing — <code>move()</code> is faster</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>copy()</code> preserves metadata; <code>move()</code> does not</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: A) <code>copy()</code> duplicates; <code>move()</code> relocates</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;report.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;backup/report.csv&quot;</span><span class="p">)</span>  <span class="c1"># original stays in current folder</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s2">&quot;report.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;archive/report.csv&quot;</span><span class="p">)</span> <span class="c1"># original is removed from current folder</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="s2">&quot;a.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;b.txt&quot;</span><span class="p">)</span>     <span class="c1"># copy with metadata (timestamps)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s2">&quot;src/&quot;</span><span class="p">,</span> <span class="s2">&quot;dst/&quot;</span><span class="p">)</span>    <span class="c1"># copy entire directory tree</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;old_folder/&quot;</span><span class="p">)</span>       <span class="c1"># delete an entire directory (careful!)</span>
+</code></pre></div>
+<p>Use <code>copy()</code> when you need a backup. Use <code>move()</code> when you're processing and archiving files.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 5: The logging Module</p>
+<p>What is the advantage of using <code>logging</code> over <code>print()</code> for pipeline scripts?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>logging</code> is faster than <code>print()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>logging</code> supports severity levels, timestamps, can write to files, and can be silenced without changing code</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>print()</code> doesn't work in automation scripts</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>logging</code> is required by the <code>schedule</code> library</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Severity levels, timestamps, file output, configurable</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> — </span><span class="si">%(levelname)s</span><span class="s2"> — </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;pipeline.log&quot;</span><span class="p">),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>   <span class="c1"># also print to terminal</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Detailed diagnostic info&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Pipeline started&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Missing column — using default&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Failed to read file&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Database connection lost — stopping&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>With <code>print()</code>, you must delete or comment out every debug line for production. With <code>logging</code>, you just change the <code>level</code> — <code>INFO</code> silences <code>DEBUG</code>, <code>WARNING</code> silences <code>INFO</code>, etc.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 6: if <strong>name</strong> == '<strong>main</strong>'</p>
+<p>What does this pattern do?</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_pipeline</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_pipeline</span><span class="p">()</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) It makes the script run faster</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) It ensures <code>run_pipeline()</code> only runs when the file is executed directly, not when it's imported as a module</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) It is required for the <code>schedule</code> library to work</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) It prevents the script from running on Windows</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Guards code from running on import</strong></p>
+<p>When Python imports a file, <code>__name__</code> is set to the module name. When run directly, <code>__name__</code> is <code>"__main__"</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Without the guard:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pipeline_script</span>   <span class="c1"># runs everything in the file — BAD</span>
+
+<span class="c1"># With the guard:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pipeline_script</span>   <span class="c1"># only imports functions, does NOT run them</span>
+<span class="n">pipeline_script</span><span class="o">.</span><span class="n">run_pipeline</span><span class="p">()</span>   <span class="c1"># you control when it runs</span>
+</code></pre></div>
+<p>This is the standard way to write reusable scripts — every well-written Python file that can also be run as a script uses this pattern.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 7: subprocess.run()</p>
+<p>What does this code do?</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;process.py&quot;</span><span class="p">,</span> <span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="s2">&quot;data.csv&quot;</span><span class="p">],</span>
+                        <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Opens a new terminal window and types the command</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Runs <code>python process.py --input data.csv</code> as a child process and captures its output</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Imports and runs <code>process.py</code> in the same Python process</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Raises <code>PermissionError</code> — subprocess requires root/admin</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Runs as a child process and captures its output</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;process.py&quot;</span><span class="p">,</span> <span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="s2">&quot;data.csv&quot;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># capture stdout and stderr</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>              <span class="c1"># return strings, not bytes</span>
+<span class="p">)</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">returncode</span>  <span class="c1"># 0 = success, non-zero = error</span>
+<span class="n">result</span><span class="o">.</span><span class="n">stdout</span>      <span class="c1"># what the script printed</span>
+<span class="n">result</span><span class="o">.</span><span class="n">stderr</span>      <span class="c1"># any error messages</span>
+</code></pre></div>
+<p><code>subprocess.run()</code> is how Python scripts orchestrate other scripts or command-line tools — the backbone of automation pipelines.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 8: Error Handling in a Pipeline Loop</p>
+<p>A pipeline processes 100 files. One file is corrupt. What is the best approach?</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>   <span class="c1"># might raise an exception</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Use <code>sys.exit()</code> if any file fails</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Wrap <code>process()</code> in <code>try/except</code>, log the error, and continue to the next file</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Skip error handling — the pipeline should crash loudly on any error</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Delete the corrupt file automatically before processing</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Catch the error, log it, and continue</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">process</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="n">success</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to process </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">failures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done: </span><span class="si">{</span><span class="n">success</span><span class="si">}</span><span class="s2"> succeeded, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span><span class="si">}</span><span class="s2"> failed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">failures</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed files: </span><span class="si">{</span><span class="n">failures</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>In automation pipelines, one bad file should not stop the other 99. Log failures for review and continue.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 9: schedule Library</p>
+<p>How do you run <code>backup()</code> every day at 08:00 using the <code>schedule</code> library?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>schedule.daily("08:00", backup)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>schedule.every().day.at("08:00").do(backup)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>schedule.at("08:00").run(backup)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>cron.every_day_at("08:00", backup)</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>schedule.every().day.at("08:00").do(backup)</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">schedule</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">backup</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running backup...&quot;</span><span class="p">)</span>
+
+<span class="n">schedule</span><span class="o">.</span><span class="n">every</span><span class="p">()</span><span class="o">.</span><span class="n">day</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="s2">&quot;08:00&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">backup</span><span class="p">)</span>
+<span class="n">schedule</span><span class="o">.</span><span class="n">every</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">minutes</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">backup</span><span class="p">)</span>         <span class="c1"># every 10 minutes</span>
+<span class="n">schedule</span><span class="o">.</span><span class="n">every</span><span class="p">()</span><span class="o">.</span><span class="n">monday</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="s2">&quot;09:00&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">backup</span><span class="p">)</span> <span class="c1"># every Monday at 9am</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">schedule</span><span class="o">.</span><span class="n">run_pending</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>   <span class="c1"># check every minute</span>
+</code></pre></div>
+<p>The <code>while True</code> loop keeps the script running so the scheduler can fire at the right time. For production-grade scheduling (e.g., on a server), use <code>cron</code> (Linux/Mac) or Task Scheduler (Windows) instead.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 10 — Question 10: Writing a Pipeline Summary Report</p>
+<p>At the end of a pipeline run, you want to write a summary to a text file. Which code is correct?</p>
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Processed: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="se">\n</span><span class="s2">Success: </span><span class="si">{</span><span class="n">ok</span><span class="si">}</span><span class="se">\n</span><span class="s2">Failed: </span><span class="si">{</span><span class="n">failed</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>open("summary.txt").write(summary)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>with open("summary.txt", "w") as f: f.write(summary)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>file.write("summary.txt", summary)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>print(summary) &gt; "summary.txt"</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>with open("summary.txt", "w") as f: f.write(summary)</code></strong></p>
+<p>The <code>with</code> statement (context manager) ensures the file is properly closed even if an error occurs:</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;summary.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</code></pre></div>
+<p>Mode flags:
+- <code>"w"</code> — write (creates or overwrites)
+- <code>"a"</code> — append (adds to the end)
+- <code>"r"</code> — read (default)</p>
+<p>Option A (<code>open(...).write(...)</code>) works but leaves the file handle open until garbage collection — unreliable. Always use <code>with open(...)</code>.</p>
+</details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>

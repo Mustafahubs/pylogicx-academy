@@ -1,0 +1,1259 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../week10_quiz/">
+      
+      
+        <link rel="next" href="../week12_quiz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Week 11 — Object-Oriented Programming - Pylogicx Academy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/quiz.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-11-quiz-object-oriented-programming-oop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pylogicx Academy" class="md-header__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pylogicx Academy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 11 — Object-Oriented Programming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pylogicx Academy" class="md-nav__button md-logo" aria-label="Pylogicx Academy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pylogicx Academy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 1 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 1 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week01_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Variables & F-strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week02_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — Conditionals & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week03_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Loops & os Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week04_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — Functions & Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week05_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Dictionaries & JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 2 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 2 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week06_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — APIs & requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week07_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week08_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — Data Analysis with pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week09_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 — Email Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 — Automation Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Month 3 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Month 3 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 — Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 — Error Handling & Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week13_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 13 — Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week14_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 14 — Code Quality & Refactoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15_quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 15 — Interview Prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-11-quiz-object-oriented-programming-oop">Week 11 Quiz — Object-Oriented Programming (OOP)</h1>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 1: class vs Instance</p>
+<p>What is the difference between a <strong>class</strong> and an <strong>instance</strong>?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="n">rex</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Rex&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) A class is a variable; an instance is a function</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) A class is a blueprint; an instance is a specific object created from that blueprint</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) A class is in memory; an instance is on disk</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) They are the same thing — "instance" is just the technical term for a class</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) A class is a blueprint; an instance is a specific object</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">:</span>           <span class="c1"># the blueprint — defines what Dogs have and can do</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="n">rex</span>  <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Rex&quot;</span><span class="p">)</span>    <span class="c1"># instance 1 — a specific Dog</span>
+<span class="n">spot</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Spot&quot;</span><span class="p">)</span>   <span class="c1"># instance 2 — another specific Dog</span>
+</code></pre></div>
+<p>You can create unlimited instances from one class, each with its own data. The class itself is just the template — it doesn't hold any specific dog's name.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 2: <strong>init</strong> and self</p>
+<p>What is <code>self</code> in a class method?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) A keyword that refers to the class itself</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) A reference to the specific instance (object) being created or used</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) A required parameter name — you must always call it <code>self</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) A placeholder for optional keyword arguments</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) A reference to the specific instance being created or used</strong></p>
+<p><code>self</code> is automatically passed by Python when you call a method — you never pass it manually:</p>
+<div class="highlight"><pre><span></span><code><span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># Python calls: BankAccount.__init__(account, &quot;Alice&quot;, 1000)</span>
+<span class="c1"># Inside __init__: self IS the account object</span>
+</code></pre></div>
+<p><code>self.owner = owner</code> stores <code>"Alice"</code> ON the specific instance. Without <code>self.</code>, it would just be a local variable that disappears when <code>__init__</code> finishes.</p>
+<p>The name <code>self</code> is a convention, not a keyword — but <strong>always use <code>self</code></strong>. Any other name confuses readers.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 3: Instance Methods</p>
+<p>What does this print?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">3.14159</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>78.54</code> — correct (5² × π)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>78.54</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>31.42</code> (circumference, not area)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>TypeError: area() takes 0 positional arguments but 1 was given</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>78.54</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>   <span class="err">→</span>  <span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="mf">3.14159</span> <span class="o">*</span> <span class="mi">25</span>       <span class="err">→</span>  <span class="mf">78.53975</span>
+<span class="nb">round</span><span class="p">(</span><span class="mf">78.53975</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="err">→</span>  <span class="mf">78.54</span>
+</code></pre></div>
+<p>Instance methods receive <code>self</code> automatically — you call <code>c.area()</code> with no arguments, but Python passes <code>c</code> as <code>self</code> behind the scenes.</p>
+<p>The <code>TypeError</code> in option D would appear if you forgot <code>self</code> in the method signature: <code>def area():</code> instead of <code>def area(self):</code>.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 4: Inheritance</p>
+<p>What does this print?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;...&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Woof!&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">speak</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">speak</span><span class="p">())</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A) <code>Woof!</code> / <code>...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) <code>Woof!</code> / <code>Woof!</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>...</code> / <code>...</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>AttributeError: Cat has no method speak</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: A) <code>Woof!</code> / <code>...</code></strong></p>
+<p><code>Dog</code> <strong>overrides</strong> <code>speak()</code> with its own version — <code>"Woof!"</code>.
+<code>Cat</code> has no <code>speak()</code>, so it <strong>inherits</strong> <code>speak()</code> from <code>Animal</code> — <code>"..."</code>.</p>
+<p>Inheritance lets child classes reuse parent code and selectively override only what's different. <code>pass</code> means "inherit everything from the parent, add nothing."</p>
+<p>This is the <strong>is-a</strong> relationship: a <code>Dog</code> IS-A <code>Animal</code>. A <code>Cat</code> IS-A <code>Animal</code>.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 5: <strong>str</strong> Method</p>
+<p>What does <code>__str__</code> control?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (Grade: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grade</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>&lt;__main__.Student object at 0x7f...&gt;</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>Alice (Grade: A)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>Student(name=Alice, grade=A)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>TypeError: Student is not printable</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>Alice (Grade: A)</code></strong></p>
+<p><code>__str__</code> is a <strong>dunder (double underscore) method</strong> — Python calls it automatically when you <code>print()</code> an object or use <code>str()</code> on it.</p>
+<p>Without <code>__str__</code>, <code>print(s)</code> shows the unhelpful memory address (<code>&lt;__main__.Student object at 0x...&gt;</code>).</p>
+<p>With <code>__str__</code>, you control exactly how the object looks as text. Always define <code>__str__</code> for any class users will print or display.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 6: Class Variable vs Instance Variable</p>
+<p>What does this print?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># class variable</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Counter</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">Counter</span><span class="o">.</span><span class="n">count</span>   <span class="c1"># instance variable</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>1</code> / <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> B) <code>3</code> / <code>1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> C) <code>3</code> / <code>3</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>3</code> / <code>Counter.count</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: C) <code>3</code> / <code>3</code></strong></p>
+<p><code>count</code> is a <strong>class variable</strong> — shared across ALL instances. Every call to <code>__init__</code> increments the shared <code>Counter.count</code>.</p>
+<p><code>self.id</code> is an <strong>instance variable</strong> — unique to each object. When <code>c</code> is created (third), <code>Counter.count</code> is already <code>3</code>, so <code>c.id = 3</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Shared?</th>
+<th>Accessed via</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class variable (<code>count</code>)</td>
+<td>✅ All instances</td>
+<td><code>Counter.count</code> or <code>self.count</code></td>
+</tr>
+<tr>
+<td>Instance variable (<code>self.id</code>)</td>
+<td>❌ Per instance</td>
+<td><code>self.id</code> only</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 7: super()</p>
+<p>What does <code>super().__init__()</code> do in a child class?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">doors</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>   <span class="c1"># ← this line</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doors</span> <span class="o">=</span> <span class="n">doors</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">make</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">doors</span><span class="p">)</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Creates a new <code>Vehicle</code> object separate from the <code>Car</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Calls the parent class's <code>__init__</code> to set up <code>self.make</code> and <code>self.model</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Copies the parent class's attributes by value</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) Raises <code>TypeError</code> — you cannot call <code>super()</code> in <code>__init__</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Calls the parent's <code>__init__</code> to initialise inherited attributes</strong></p>
+<p>Without <code>super().__init__(make, model)</code>, the <code>Car</code> object would never get <code>self.make</code> or <code>self.model</code> — they're only set in <code>Vehicle.__init__</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">make</span><span class="p">)</span>   <span class="c1"># &quot;Toyota&quot;  ← set by Vehicle.__init__ via super()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">doors</span><span class="p">)</span>  <span class="c1"># 4          ← set by Car.__init__</span>
+</code></pre></div>
+<p><code>super()</code> lets you extend the parent rather than replacing it entirely.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 8: @property</p>
+<p>What does the <code>@property</code> decorator do?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Temperature</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">celsius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_celsius</span> <span class="o">=</span> <span class="n">celsius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fahrenheit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_celsius</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Temperature</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">fahrenheit</span><span class="p">)</span>   <span class="c1"># no parentheses!</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) It makes <code>fahrenheit</code> a class variable</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) It lets you call the method like an attribute (no parentheses needed at call site)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) It prevents the method from being overridden</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) It caches the return value so the calculation only runs once</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Lets you access a method like an attribute</strong></p>
+<p>Without <code>@property</code>: <code>t.fahrenheit()</code> — looks like a method call.
+With <code>@property</code>: <code>t.fahrenheit</code> — looks like reading an attribute.</p>
+<p>This is great for computed values that feel like data:
+<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="o">.</span><span class="n">fahrenheit</span>   <span class="c1"># → 212.0  (100°C in Fahrenheit)</span>
+</code></pre></div></p>
+<p>Properties also allow validation when setting values with <code>@attr.setter</code>.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 9: Encapsulation — Private Attributes</p>
+<p>What is the convention for "private" attributes in Python?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>   <span class="c1"># or self.__balance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) Python enforces private attributes — they cannot be accessed outside the class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) Single underscore <code>_attr</code> is a convention meaning "don't touch from outside"; double underscore <code>__attr</code> triggers name-mangling but is still technically accessible</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) Private attributes are encrypted at runtime</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) You must use the <code>private</code> keyword before the attribute name</li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) Conventions, not enforcement — Python trusts the programmer</strong></p>
+<p>Python has no true private attributes. The conventions are:</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Convention</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_attr</code></td>
+<td>Single underscore</td>
+<td>"Internal use — be careful"</td>
+</tr>
+<tr>
+<td><code>__attr</code></td>
+<td>Double underscore</td>
+<td>Name-mangled to <code>_ClassName__attr</code> — harder to access accidentally</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">_balance</span>       <span class="c1"># works, but breaks the convention</span>
+<span class="n">account</span><span class="o">.</span><span class="n">__balance</span>      <span class="c1"># AttributeError (name-mangled to _BankAccount__balance)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">_BankAccount__balance</span>  <span class="c1"># still accessible — just annoying</span>
+</code></pre></div>
+<p>The mangling prevents accidental name clashes in inheritance, not intentional access.</p>
+</details>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Week 11 — Question 10: isinstance()</p>
+<p>What does <code>isinstance()</code> check?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span> <span class="k">pass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Dog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Animal</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A) <code>True</code> / <code>False</code> / <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> B) <code>True</code> / <code>True</code> / <code>False</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> C) <code>True</code> / <code>True</code> / <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> D) <code>False</code> / <code>True</code> / <code>False</code></li>
+</ul>
+<details class="success">
+<summary>Check Answer</summary>
+<p>✅ <strong>Correct Answer: B) <code>True</code> / <code>True</code> / <code>False</code></strong></p>
+<p><code>isinstance(obj, Class)</code> returns <code>True</code> if <code>obj</code> is an instance of <code>Class</code> <strong>or any of its parent classes</strong>.</p>
+<p><code>Dog</code> inherits from <code>Animal</code>, so a <code>Dog</code> instance IS-A <code>Dog</code> AND IS-A <code>Animal</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Dog</span><span class="p">)</span>    <span class="c1"># True  — d is a Dog</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Animal</span><span class="p">)</span> <span class="c1"># True  — Dog is a subclass of Animal</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>    <span class="c1"># False — Dog has nothing to do with str</span>
+</code></pre></div>
+<p>Use <code>isinstance()</code> instead of <code>type(obj) == Dog</code> — <code>isinstance</code> respects inheritance, <code>type()</code> does not.</p>
+</details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>
