@@ -25,3 +25,15 @@ nav:
     - Week 3 — Loops & os Module: quizzes/week03_quiz.md
     - Week 4 — Functions & Scope: quizzes/week04_quiz.md
     - Week 5 — Dictionaries & JSON: quizzes/week05_quiz.md
+  - Month 2 Quizzes:
+    - Week 6 — APIs & requests: quizzes/week06_quiz.md
+    - Week 7 — Web Scraping: quizzes/week07_quiz.md
+    - Week 8 — Data Analysis with pandas: quizzes/week08_quiz.md
+    - Week 9 — Email Automation: quizzes/week09_quiz.md
+    - Week 10 — Automation Pipelines: quizzes/week10_quiz.md
+  - Month 3 Quizzes:
+    - Week 11 — Object-Oriented Programming: quizzes/week11_quiz.md
+    - Week 12 — Error Handling & Logging: quizzes/week12_quiz.md
+    - Week 13 — Git & GitHub: quizzes/week13_quiz.md
+    - Week 14 — Code Quality & Refactoring: quizzes/week14_quiz.md
+    - Week 15 — Interview Prep: quizzes/week15_quiz.md

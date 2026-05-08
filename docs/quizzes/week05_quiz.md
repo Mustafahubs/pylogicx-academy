@@ -205,3 +205,184 @@
         ```
 
         Final dictionary has **3 unique keys**, not 5. The `len()` of a dictionary returns the number of key-value pairs.
+
+---
+
+!!! question "Week 5 — Question 6: Iterating with .items()"
+    What does this print?
+
+    ```python
+    prices = {"coffee": 2.5, "tea": 1.8, "juice": 3.2}
+
+    for item, price in prices.items():
+        if price < 3.0:
+            print(item)
+    ```
+
+    * [ ] A) `coffee` / `tea` / `juice`
+    * [x] B) `coffee` / `tea`
+    * [ ] C) `juice`
+    * [ ] D) `TypeError: cannot iterate dict with two variables`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `coffee` / `tea`**
+
+        `.items()` returns `(key, value)` pairs. The loop unpacks each pair into `item` and `price`.
+
+        ```python
+        ("coffee", 2.5) → 2.5 < 3.0 ✅ → prints "coffee"
+        ("tea",    1.8) → 1.8 < 3.0 ✅ → prints "tea"
+        ("juice",  3.2) → 3.2 < 3.0 ❌ → skipped
+        ```
+
+        The three ways to iterate a dictionary:
+        ```python
+        for key in d:            # keys only (default)
+        for key in d.keys():     # same as above, more explicit
+        for val in d.values():   # values only
+        for k, v in d.items():   # key-value pairs (most common in real code)
+        ```
+
+---
+
+!!! question "Week 5 — Question 7: dict.update()"
+    What does this print?
+
+    ```python
+    user = {"name": "Bob", "age": 30, "city": "Paris"}
+    updates = {"age": 31, "email": "bob@example.com"}
+
+    user.update(updates)
+    print(user)
+    ```
+
+    * [ ] A) `{"name": "Bob", "age": 30, "city": "Paris"}`
+    * [ ] B) `{"age": 31, "email": "bob@example.com"}`
+    * [x] C) `{"name": "Bob", "age": 31, "city": "Paris", "email": "bob@example.com"}`
+    * [ ] D) `KeyError: 'age' already exists`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: C) `{"name": "Bob", "age": 31, "city": "Paris", "email": "bob@example.com"}`**
+
+        `.update(other_dict)` does two things at once:
+        - **Updates** existing keys with new values (`"age"` changes from 30 to 31)
+        - **Adds** new keys that don't exist yet (`"email"` is inserted)
+
+        Keys not mentioned in `updates` (`"name"`, `"city"`) are left unchanged.
+
+        `.update()` is perfect for merging user edits into an existing record — exactly what our Contact Book App does when you edit a contact.
+
+---
+
+!!! question "Week 5 — Question 8: Dictionary Comprehension"
+    What does this print?
+
+    ```python
+    numbers = [1, 2, 3, 4, 5]
+    squares = {n: n**2 for n in numbers}
+    print(squares)
+    ```
+
+    * [ ] A) `[1, 4, 9, 16, 25]`
+    * [x] B) `{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}`
+    * [ ] C) `{1, 4, 9, 16, 25}`
+    * [ ] D) `SyntaxError: invalid syntax`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}`**
+
+        A **dict comprehension** uses `{key: value for item in iterable}` syntax — curly braces with a colon separating key from value.
+
+        ```python
+        {n: n**2 for n in [1, 2, 3, 4, 5]}
+        → {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+        ```
+
+        Compare the three comprehension types:
+        ```python
+        [n**2 for n in numbers]          # list comprehension → [1, 4, 9, 16, 25]
+        {n**2 for n in numbers}          # set comprehension  → {1, 4, 9, 16, 25}
+        {n: n**2 for n in numbers}       # dict comprehension → {1:1, 2:4, 3:9, ...}
+        ```
+
+        The presence of `:` inside `{}` is what distinguishes a dict comprehension from a set comprehension.
+
+---
+
+!!! question "Week 5 — Question 9: Safe Nested Key Access"
+    A student receives this API response. What is the safest way to get the city?
+
+    ```python
+    profile = {
+        "name": "Sara",
+        "address": {
+            "city": "Dubai",
+            "postcode": "00000"
+        }
+    }
+    ```
+
+    * [ ] A) `profile["address"]["city"]`
+    * [ ] B) `profile.get("city")`
+    * [x] C) `profile.get("address", {}).get("city", "Unknown")`
+    * [ ] D) `profile["city"]`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: C) `profile.get("address", {}).get("city", "Unknown")`**
+
+        Option A crashes with a `KeyError` if `"address"` is missing from the dict.
+        Option B returns `None` — it looks for `"city"` at the top level, not nested inside `"address"`.
+        Option D crashes immediately.
+
+        Option C chains two `.get()` calls safely:
+
+        ```python
+        profile.get("address", {})     # returns the address dict, or {} if missing
+        .get("city", "Unknown")        # returns the city, or "Unknown" if missing
+        ```
+
+        If `"address"` is missing, `.get("address", {})` returns `{}`, and then `{}.get("city", "Unknown")` returns `"Unknown"` — no crash.
+
+        This chained pattern is essential when working with API responses where fields may be missing.
+
+---
+
+!!! question "Week 5 — Question 10: JSON Round-Trip"
+    What does this print?
+
+    ```python
+    import json
+
+    original = {"name": "Alice", "score": 95, "passed": True}
+
+    json_string = json.dumps(original)
+    recovered = json.loads(json_string)
+
+    print(type(recovered))
+    print(recovered["passed"])
+    ```
+
+    * [ ] A) `<class 'str'>` / `"True"`
+    * [x] B) `<class 'dict'>` / `True`
+    * [ ] C) `<class 'dict'>` / `"true"`
+    * [ ] D) `<class 'str'>` / `True`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `<class 'dict'>` / `True`**
+
+        `json.dumps()` converts the dict to a JSON string. `json.loads()` converts it back to a Python dict. The round-trip restores the original types.
+
+        ```python
+        json.dumps({"passed": True})   # → '{"passed": true}'  (JSON uses lowercase)
+        json.loads('{"passed": true}') # → {"passed": True}    (Python bool restored)
+        ```
+
+        Note: JSON uses lowercase `true`/`false`/`null`, but `json.loads()` automatically converts them back to Python's `True`/`False`/`None`. The types survive the round-trip correctly.
+
+        | Python | JSON wire format | Python (after loads) |
+        |--------|-----------------|---------------------|
+        | `True` | `true` | `True` |
+        | `False` | `false` | `False` |
+        | `None` | `null` | `None` |
+        | `"str"` | `"str"` | `"str"` |
+        | `42` | `42` | `42` |

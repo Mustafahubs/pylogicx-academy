@@ -171,3 +171,195 @@
         ```
 
         `os.path.exists()` checks for the file before attempting the rename — this is the safe pattern.
+
+---
+
+!!! question "Week 3 — Question 6: enumerate()"
+    What does this print?
+
+    ```python
+    fruits = ["apple", "banana", "cherry"]
+
+    for i, fruit in enumerate(fruits, start=1):
+        print(f"{i}. {fruit}")
+    ```
+
+    * [ ] A) `0. apple` / `1. banana` / `2. cherry`
+    * [x] B) `1. apple` / `2. banana` / `3. cherry`
+    * [ ] C) `apple 0` / `banana 1` / `cherry 2`
+    * [ ] D) `TypeError: enumerate() takes 1 argument`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `1. apple` / `2. banana` / `3. cherry`**
+
+        `enumerate(iterable, start=0)` produces `(index, value)` pairs. The `start` keyword sets the first index value.
+
+        ```python
+        enumerate(fruits)           # → (0,"apple"), (1,"banana"), (2,"cherry")
+        enumerate(fruits, start=1)  # → (1,"apple"), (2,"banana"), (3,"cherry")
+        ```
+
+        Without `enumerate`, you'd need a separate counter variable. `enumerate` is cleaner:
+        ```python
+        # Old way
+        i = 1
+        for fruit in fruits:
+            print(f"{i}. {fruit}")
+            i += 1
+
+        # Pythonic way
+        for i, fruit in enumerate(fruits, start=1):
+            print(f"{i}. {fruit}")
+        ```
+
+---
+
+!!! question "Week 3 — Question 7: Nested Loop Count"
+    How many times does `"*"` get printed in total?
+
+    ```python
+    for row in range(3):
+        for col in range(4):
+            print("*", end="")
+        print()
+    ```
+
+    * [ ] A) `7`
+    * [ ] B) `9`
+    * [x] C) `12`
+    * [ ] D) `3`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: C) `12`**
+
+        The outer loop runs **3 times** (row = 0, 1, 2).
+        For each outer iteration, the inner loop runs **4 times** (col = 0, 1, 2, 3).
+
+        Total prints of `"*"` = 3 × 4 = **12**
+
+        The `print()` at the end of the outer loop just adds a newline after each row. Output looks like:
+        ```
+        ****
+        ****
+        ****
+        ```
+
+        Nested loops multiply: **outer iterations × inner iterations = total inner executions**. This pattern creates tables, grids, and multiplication tables.
+
+---
+
+!!! question "Week 3 — Question 8: zip()"
+    What does this print?
+
+    ```python
+    names = ["Alice", "Bob", "Carol"]
+    scores = [88, 95, 72]
+
+    for name, score in zip(names, scores):
+        print(f"{name}: {score}")
+    ```
+
+    * [x] A) `Alice: 88` / `Bob: 95` / `Carol: 72`
+    * [ ] B) `["Alice", "Bob", "Carol"]: [88, 95, 72]`
+    * [ ] C) `TypeError: zip requires same-length lists`
+    * [ ] D) `Alice: 72` / `Bob: 95` / `Carol: 88`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `Alice: 88` / `Bob: 95` / `Carol: 72`**
+
+        `zip()` pairs up items from two (or more) iterables by position:
+
+        ```python
+        zip(["Alice","Bob","Carol"], [88, 95, 72])
+        # → ("Alice", 88), ("Bob", 95), ("Carol", 72)
+        ```
+
+        If the lists have different lengths, `zip` stops at the **shortest** — no error is raised.
+
+        `zip` is ideal when you have parallel lists that logically belong together. The alternative — using index-based access — is error-prone and harder to read:
+        ```python
+        # Fragile
+        for i in range(len(names)):
+            print(f"{names[i]}: {scores[i]}")
+        ```
+
+---
+
+!!! question "Week 3 — Question 9: while Loop with break"
+    What is the final value of `total` when this code finishes?
+
+    ```python
+    total = 0
+    numbers = [4, 7, 2, 9, 1, 5]
+
+    for n in numbers:
+        if n == 9:
+            break
+        total += n
+
+    print(total)
+    ```
+
+    * [ ] A) `28` (sum of all numbers)
+    * [x] B) `13`
+    * [ ] C) `9`
+    * [ ] D) `22`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `13`**
+
+        The loop adds each number to `total` until it hits `9`, at which point `break` exits immediately — **without** adding `9`.
+
+        ```python
+        n = 4  → total = 0 + 4 = 4
+        n = 7  → total = 4 + 7 = 11
+        n = 2  → total = 11 + 2 = 13
+        n = 9  → break (13 is not changed, 9 is not added)
+        ```
+
+        The final total is `13`. The numbers after `9` (`1`, `5`) are also never processed.
+
+        `break` is useful when searching: once you've found what you're looking for, stop early and save time.
+
+---
+
+!!! question "Week 3 — Question 10: os.listdir() and File Filtering"
+    A folder contains these files: `notes.txt`, `photo.jpg`, `data.csv`, `backup.txt`, `image.png`.
+    What does this code print?
+
+    ```python
+    import os
+
+    files = os.listdir(".")
+    txt_files = [f for f in files if f.endswith(".txt")]
+    print(len(txt_files))
+    ```
+
+    Assume `os.listdir(".")` returns exactly those 5 files.
+
+    * [ ] A) `5`
+    * [x] B) `2`
+    * [ ] C) `3`
+    * [ ] D) `1`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `2`**
+
+        `.endswith(".txt")` returns `True` only for filenames that end with `.txt`:
+
+        | File | Ends with `.txt`? |
+        |------|-----------------|
+        | `notes.txt` | ✅ Yes |
+        | `photo.jpg` | ❌ No |
+        | `data.csv` | ❌ No |
+        | `backup.txt` | ✅ Yes |
+        | `image.png` | ❌ No |
+
+        The list comprehension keeps only the 2 `.txt` files. `len(txt_files)` is `2`.
+
+        This is a core pattern from our Bulk File Renamer project:
+        ```python
+        for filename in os.listdir(folder):
+            if filename.endswith(".txt"):
+                # process only text files
+        ```

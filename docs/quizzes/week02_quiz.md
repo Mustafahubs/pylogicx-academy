@@ -182,3 +182,191 @@
         if results:           # only runs if list has at least one item
             print("Found results!")
         ```
+
+---
+
+!!! question "Week 2 — Question 6: Short-Circuit Evaluation"
+    What does this print?
+
+    ```python
+    def check():
+        print("check() called")
+        return True
+
+    result = False and check()
+    print(result)
+    ```
+
+    * [x] A) `False` (check() is never called)
+    * [ ] B) `check() called` then `True`
+    * [ ] C) `check() called` then `False`
+    * [ ] D) `True`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `False` (check() is never called)**
+
+        Python uses **short-circuit evaluation** with `and` and `or`:
+
+        - `and` stops as soon as it finds a **False** value — no point checking the rest
+        - `or` stops as soon as it finds a **True** value — no point checking the rest
+
+        Because `False and ...` can never be `True`, Python skips evaluating `check()` entirely.
+
+        ```python
+        False and check()   # → False immediately, check() never runs
+        True  or  check()   # → True  immediately, check() never runs
+        True  and check()   # → calls check(), returns its result
+        False or  check()   # → calls check(), returns its result
+        ```
+
+        This is useful for guarding dangerous operations:
+        ```python
+        if data and data["key"] == value:  # safe: only accesses key if data is truthy
+            ...
+        ```
+
+---
+
+!!! question "Week 2 — Question 7: Chained Comparison"
+    What does this print?
+
+    ```python
+    x = 15
+    print(10 < x < 20)
+    print(10 < x < 15)
+    print(x == 15 == 15)
+    ```
+
+    * [x] A) `True` / `False` / `True`
+    * [ ] B) `True` / `True` / `True`
+    * [ ] C) `True` / `False` / `False`
+    * [ ] D) `False` / `False` / `True`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `True` / `False` / `True`**
+
+        Python supports **chained comparisons** — they work like mathematical notation:
+
+        ```python
+        10 < x < 20    →  10 < 15 and 15 < 20  →  True and True  →  True
+        10 < x < 15    →  10 < 15 and 15 < 15  →  True and False →  False
+        x == 15 == 15  →  15 == 15 and 15 == 15 → True and True  →  True
+        ```
+
+        This is cleaner than writing `10 < x and x < 20` — both are equivalent, but chaining reads more naturally.
+
+---
+
+!!! question "Week 2 — Question 8: Division Operators"
+    What does this print?
+
+    ```python
+    a = 17
+    b = 5
+
+    print(a / b)
+    print(a // b)
+    print(a % b)
+    ```
+
+    * [ ] A) `3.4` / `3` / `1`
+    * [x] B) `3.4` / `3` / `2`
+    * [ ] C) `3` / `3` / `2`
+    * [ ] D) `3.4` / `4` / `2`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `3.4` / `3` / `2`**
+
+        Three division operators, three different jobs:
+
+        | Operator | Name | `17 op 5` | Result |
+        |----------|------|-----------|--------|
+        | `/` | True division | `17 / 5` | `3.4` (always a float) |
+        | `//` | Floor division | `17 // 5` | `3` (rounds down to nearest int) |
+        | `%` | Modulo | `17 % 5` | `2` (remainder after division) |
+
+        **Modulo check:** `17 = 5 × 3 + 2` → the remainder is `2`.
+
+        Modulo is extremely useful for:
+        ```python
+        if number % 2 == 0:   # even/odd check
+        if index % 10 == 0:   # "every 10 items" trigger
+        ```
+
+---
+
+!!! question "Week 2 — Question 9: Nested if Statements"
+    What does this print?
+
+    ```python
+    temperature = 22
+    is_raining = False
+
+    if temperature > 20:
+        if is_raining:
+            print("Warm but rainy")
+        else:
+            print("Great weather!")
+    else:
+        print("Too cold")
+    ```
+
+    * [ ] A) `Warm but rainy`
+    * [x] B) `Great weather!`
+    * [ ] C) `Too cold`
+    * [ ] D) Nothing prints
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `Great weather!`**
+
+        Tracing the conditions:
+        - `temperature > 20` → `22 > 20` → `True` → enter outer if block
+        - `is_raining` → `False` → skip inner if, go to inner else
+        - Print `"Great weather!"`
+
+        Nested `if` statements let you check conditions in sequence. The inner `if` only runs if the outer `if` was true. You can often flatten nested ifs using `and`:
+
+        ```python
+        if temperature > 20 and is_raining:
+            print("Warm but rainy")
+        elif temperature > 20:
+            print("Great weather!")
+        else:
+            print("Too cold")
+        ```
+
+---
+
+!!! question "Week 2 — Question 10: The String Multiplication Trap"
+    What does this print?
+
+    ```python
+    a = "3"
+    b = "5"
+    print(a + b)
+    print(int(a) + int(b))
+    ```
+
+    * [ ] A) `8` / `8`
+    * [x] B) `35` / `8`
+    * [ ] C) `35` / `35`
+    * [ ] D) `TypeError` / `8`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `35` / `8`**
+
+        When `a` and `b` are **strings**, `+` is string concatenation — not addition:
+
+        ```python
+        "3" + "5"         # → "35"   (strings joined together)
+        int("3") + int("5")  # → 8    (integers added)
+        ```
+
+        This is the exact trap that bites students who forget to cast `input()`. The user types `"3"` and `"5"`, and `a + b` gives `"35"` instead of `8`.
+
+        **Always cast `input()` before doing arithmetic:**
+        ```python
+        a = int(input("First number: "))
+        b = int(input("Second number: "))
+        print(a + b)   # now correctly adds the numbers
+        ```

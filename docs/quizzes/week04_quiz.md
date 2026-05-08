@@ -185,3 +185,192 @@
         The `:.1f` format specifier rounds to 1 decimal place.
 
         `*args` lets you write functions that accept any number of arguments — like Python's built-in `print()`, `sum()`, and `max()` do. The name `args` is just a convention; the `*` is what matters.
+
+---
+
+!!! question "Week 4 — Question 6: Returning Multiple Values"
+    What does this print?
+
+    ```python
+    def min_max(numbers):
+        return min(numbers), max(numbers)
+
+    low, high = min_max([3, 1, 7, 2, 9, 4])
+    print(low)
+    print(high)
+    ```
+
+    * [x] A) `1` / `9`
+    * [ ] B) `(1, 9)` / `TypeError`
+    * [ ] C) `3` / `9`
+    * [ ] D) `SyntaxError: can't return two values`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `1` / `9`**
+
+        A Python function can return multiple values as a **tuple**. The caller can **unpack** that tuple into separate variables:
+
+        ```python
+        return min(numbers), max(numbers)
+        # equivalent to: return (1, 9)
+
+        low, high = (1, 9)   # tuple unpacking
+        # low = 1, high = 9
+        ```
+
+        This is called **multiple return values** — but technically it's one tuple being unpacked. The commas on the `return` line create the tuple automatically.
+
+        ```python
+        # You can also capture the tuple without unpacking:
+        result = min_max([3, 1, 7, 2, 9, 4])
+        print(result)   # (1, 9)
+        ```
+
+---
+
+!!! question "Week 4 — Question 7: **kwargs — Keyword Arguments"
+    What does this print?
+
+    ```python
+    def display(**details):
+        for key, value in details.items():
+            print(f"{key}: {value}")
+
+    display(name="Alice", age=25, city="London")
+    ```
+
+    * [x] A) `name: Alice` / `age: 25` / `city: London`
+    * [ ] B) `TypeError: display() takes 0 positional arguments but 3 were given`
+    * [ ] C) `{'name': 'Alice', 'age': 25, 'city': 'London'}`
+    * [ ] D) `Alice` / `25` / `London`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `name: Alice` / `age: 25` / `city: London`**
+
+        `**kwargs` collects all **keyword arguments** (name=value pairs) into a **dictionary** called `details`.
+
+        ```python
+        display(name="Alice", age=25, city="London")
+        # inside function: details = {"name": "Alice", "age": 25, "city": "London"}
+        ```
+
+        Iterating `details.items()` gives `(key, value)` pairs in insertion order.
+
+        | Pattern | Collects into | Use when |
+        |---------|--------------|----------|
+        | `*args` | tuple | unknown number of positional args |
+        | `**kwargs` | dict | unknown number of keyword args |
+
+---
+
+!!! question "Week 4 — Question 8: Function Calling Another Function"
+    What does this print?
+
+    ```python
+    def square(n):
+        return n * n
+
+    def sum_of_squares(a, b):
+        return square(a) + square(b)
+
+    print(sum_of_squares(3, 4))
+    ```
+
+    * [ ] A) `7`
+    * [ ] B) `12`
+    * [x] C) `25`
+    * [ ] D) `49`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: C) `25`**
+
+        Functions can call other functions. The evaluation chains:
+
+        ```python
+        sum_of_squares(3, 4)
+        → square(3) + square(4)
+        → (3 * 3) + (4 * 4)
+        → 9 + 16
+        → 25
+        ```
+
+        Breaking big problems into small, focused functions is a core principle of good code design. `sum_of_squares` doesn't need to know *how* squaring works — it just calls `square` and trusts it.
+
+---
+
+!!! question "Week 4 — Question 9: The global Keyword"
+    What does this print?
+
+    ```python
+    counter = 0
+
+    def increment():
+        global counter
+        counter += 1
+
+    increment()
+    increment()
+    increment()
+    print(counter)
+    ```
+
+    * [ ] A) `0`
+    * [ ] B) `1`
+    * [ ] C) `2`
+    * [x] D) `3`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: D) `3`**
+
+        The `global` keyword tells Python: "when I write `counter` inside this function, I mean the **global** `counter`, not a new local one."
+
+        Without `global counter`, writing `counter += 1` would raise an `UnboundLocalError` because Python sees the assignment and treats `counter` as a local variable — but it was never assigned a local value before being read.
+
+        ```python
+        # Without global → UnboundLocalError
+        def increment():
+            counter += 1   # Python treats counter as local, but it hasn't been set locally
+
+        # With global → works
+        def increment():
+            global counter
+            counter += 1
+        ```
+
+        **Best practice:** avoid `global` where possible. Prefer returning values and reassigning at the call site. Use `global` only when genuinely needed.
+
+---
+
+!!! question "Week 4 — Question 10: lambda and map()"
+    What does this print?
+
+    ```python
+    numbers = [1, 2, 3, 4, 5]
+    doubled = list(map(lambda x: x * 2, numbers))
+    print(doubled)
+    ```
+
+    * [ ] A) `[1, 2, 3, 4, 5]`
+    * [x] B) `[2, 4, 6, 8, 10]`
+    * [ ] C) `lambda x: x * 2`
+    * [ ] D) `TypeError: 'map' object is not subscriptable`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `[2, 4, 6, 8, 10]`**
+
+        `lambda x: x * 2` is an **anonymous function** (no `def`, no name) that takes `x` and returns `x * 2`.
+
+        `map(function, iterable)` applies the function to every item and returns a lazy iterator. `list()` converts it to a list.
+
+        ```python
+        map(lambda x: x * 2, [1, 2, 3, 4, 5])
+        # applies to each: 1*2, 2*2, 3*2, 4*2, 5*2
+        # → [2, 4, 6, 8, 10]
+        ```
+
+        The equivalent list comprehension (more readable in most cases):
+        ```python
+        doubled = [x * 2 for x in numbers]
+        ```
+
+        Lambdas are useful for short, one-off functions passed to `map()`, `filter()`, or `sorted()`.

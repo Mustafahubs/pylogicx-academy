@@ -161,3 +161,169 @@
         ```
 
         `.append()` adds one item to the end. `.remove()` deletes the **first occurrence** of the value (not by index). If the value doesn't exist, it raises a `ValueError`.
+
+---
+
+!!! question "Week 1 — Question 6: List Slicing"
+    What does this code print?
+
+    ```python
+    numbers = [10, 20, 30, 40, 50]
+    print(numbers[1:4])
+    ```
+
+    * [ ] A) `[10, 20, 30]`
+    * [x] B) `[20, 30, 40]`
+    * [ ] C) `[20, 30, 40, 50]`
+    * [ ] D) `[10, 20, 30, 40]`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `[20, 30, 40]`**
+
+        `list[start:stop]` returns elements from index `start` up to **but not including** index `stop`.
+
+        ```
+        Index:    0    1    2    3    4
+        Value:   10   20   30   40   50
+        Slice [1:4]  → indices 1, 2, 3 → [20, 30, 40]
+        ```
+
+        The stop index is always **excluded** — same rule as `range()`.
+
+        Common slice patterns:
+        ```python
+        numbers[:3]   # first 3 items → [10, 20, 30]
+        numbers[2:]   # from index 2 onward → [30, 40, 50]
+        numbers[-2:]  # last 2 items → [40, 50]
+        numbers[::2]  # every 2nd item → [10, 30, 50]
+        ```
+
+---
+
+!!! question "Week 1 — Question 7: Chained String Methods"
+    What does this print?
+
+    ```python
+    text = "  hello world  "
+    result = text.strip().title()
+    print(result)
+    ```
+
+    * [x] A) `Hello World`
+    * [ ] B) `  Hello World  `
+    * [ ] C) `hello world`
+    * [ ] D) `HELLO WORLD`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: A) `Hello World`**
+
+        Method calls chain left-to-right. Each call returns a new string that the next call acts on:
+
+        ```python
+        "  hello world  ".strip()   # → "hello world"   (removes leading/trailing spaces)
+        "hello world".title()       # → "Hello World"   (capitalises first letter of each word)
+        ```
+
+        String methods **never modify the original** — they return new strings. That's why chaining works: `.strip()` returns a string, then `.title()` is called on that returned string.
+
+---
+
+!!! question "Week 1 — Question 8: Step-by-Step Variable Reassignment"
+    What does this code print?
+
+    ```python
+    x = 5
+    x = x + 3
+    x = x * 2
+    print(x)
+    ```
+
+    * [ ] A) `10`
+    * [ ] B) `13`
+    * [x] C) `16`
+    * [ ] D) `8`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: C) `16`**
+
+        Each line reassigns `x` using its current value:
+
+        ```python
+        x = 5          # x is 5
+        x = x + 3      # x = 5 + 3 = 8
+        x = x * 2      # x = 8 * 2 = 16
+        print(x)       # 16
+        ```
+
+        The right-hand side is always evaluated **first**, using the current value of `x`, then the result is stored back into `x`. There is no "memory" of the previous values.
+
+---
+
+!!! question "Week 1 — Question 9: The .pop() Method"
+    What does this print?
+
+    ```python
+    colours = ["red", "green", "blue", "yellow"]
+    removed = colours.pop(1)
+    print(removed)
+    print(colours)
+    ```
+
+    * [ ] A) `red` / `["green", "blue", "yellow"]`
+    * [x] B) `green` / `["red", "blue", "yellow"]`
+    * [ ] C) `blue` / `["red", "green", "yellow"]`
+    * [ ] D) `yellow` / `["red", "green", "blue"]`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `green` / `["red", "blue", "yellow"]`**
+
+        `.pop(index)` does two things at once: it **removes** the item at the given index and **returns** it.
+
+        ```python
+        colours = ["red", "green", "blue", "yellow"]
+        #  index:    0       1       2       3
+        removed = colours.pop(1)   # removes index 1 → "green"
+        ```
+
+        After the pop, `colours` is `["red", "blue", "yellow"]` and `removed` holds `"green"`.
+
+        With no argument, `.pop()` removes and returns the **last** item:
+        ```python
+        colours.pop()   # returns "yellow", list shrinks by one
+        ```
+
+---
+
+!!! question "Week 1 — Question 10: F-string Number Formatting"
+    What does this print?
+
+    ```python
+    price = 9.5
+    quantity = 3
+    print(f"Total: £{price * quantity:.2f}")
+    ```
+
+    * [ ] A) `Total: £28.5`
+    * [x] B) `Total: £28.50`
+    * [ ] C) `Total: £{price * quantity:.2f}`
+    * [ ] D) `TypeError: can't use arithmetic in f-strings`
+
+    ??? success "Check Answer"
+        ✅ **Correct Answer: B) `Total: £28.50`**
+
+        The `:.2f` format specifier means: format as a **float** with exactly **2 decimal places**.
+
+        ```python
+        price * quantity  →  9.5 * 3  →  28.5
+        f"{28.5:.2f}"     →  "28.50"   (trailing zero is added)
+        ```
+
+        Useful formatting specifiers:
+        ```python
+        f"{3.14159:.2f}"   # "3.14"   — 2 decimal places
+        f"{1000:.0f}"      # "1000"   — no decimal places
+        f"{0.75:.1%}"      # "75.0%"  — percentage
+        f"{42:05d}"        # "00042"  — zero-padded integer
+        ```
+
+        The `:.2f` pattern is essential for displaying prices, scores, and measurements cleanly.
