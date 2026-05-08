@@ -4,7 +4,7 @@
  * SETUP: Paste your Google Apps Script Web App URL below.
  * Leave it empty ("") and the submit button simply won't appear.
  */
-const APPS_SCRIPT_URL = "";   // ← paste your Web App URL here
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw56iTPZ2D_tOgyVxR6tI2NXhu-MvtV8N-g1b1PtaUJc2hin_tEqrbhFExmfnCbywUiZA/exec";   // ← paste your Web App URL here
 
 // ── Page-level state ────────────────────────────────────────────────────────
 let quizState = {
