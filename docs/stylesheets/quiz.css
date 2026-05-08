@@ -1,0 +1,172 @@
+/* ── Quiz Option Interactivity ─────────────────────────────────────────── */
+
+/* Make each option feel clickable */
+.admonition.question .task-list-item {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 5px 8px;
+  margin: 2px 0;
+  transition: background-color 0.15s ease;
+  user-select: none;
+  position: relative;
+}
+
+.admonition.question .task-list-item:hover {
+  background-color: rgba(68, 138, 255, 0.08);
+}
+
+/* ── Correct answer ───────────────────────────────────────────────────── */
+.admonition.question .task-list-item.quiz-correct {
+  background-color: rgba(0, 191, 84, 0.14) !important;
+  border-left: 3px solid #00bf54;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.admonition.question .task-list-item.quiz-correct::after {
+  content: "  ✅ Correct!";
+  color: #00913e;
+  font-weight: 700;
+  font-size: 0.88em;
+}
+
+/* Revealed correct answer after a wrong pick (slightly different label) */
+.admonition.question .task-list-item.quiz-correct.quiz-reveal::after {
+  content: "  ✅ This was correct";
+  color: #00913e;
+  font-weight: 700;
+  font-size: 0.88em;
+}
+
+/* ── Wrong answer ─────────────────────────────────────────────────────── */
+.admonition.question .task-list-item.quiz-incorrect {
+  background-color: rgba(229, 57, 53, 0.10) !important;
+  border-left: 3px solid #e53935;
+  padding-left: 10px;
+}
+
+.admonition.question .task-list-item.quiz-incorrect::after {
+  content: "  ❌ Not quite — see the correct answer below";
+  color: #c62828;
+  font-size: 0.85em;
+}
+
+/* ── Hint text below the options ──────────────────────────────────────── */
+.admonition.question .task-list::after {
+  content: "Click an option to check your answer";
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78em;
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+}
+
+/* Hide the hint once an answer is selected */
+.admonition.question:has(.quiz-correct) .task-list::after,
+.admonition.question:has(.quiz-incorrect) .task-list::after {
+  content: "Click ✅ again to reset";
+}
+
+/* ── Submission panel ─────────────────────────────────────────────────── */
+#quiz-submit-panel {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Score summary row */
+.quiz-score-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.quiz-score-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quiz-score-pct {
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.quiz-grade-label {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Grade colour bands */
+.grade-pass  { border-left: 5px solid #00bf54; }
+.grade-review { border-left: 5px solid #f9a825; }
+.grade-fail  { border-left: 5px solid #e53935; }
+
+.grade-pass  .quiz-score-number { color: #00913e; }
+.grade-review .quiz-score-number { color: #e65100; }
+.grade-fail  .quiz-score-number { color: #c62828; }
+
+.grade-pass  .quiz-grade-label { background: rgba(0,191,84,0.12); color: #00913e; }
+.grade-review .quiz-grade-label { background: rgba(249,168,37,0.15); color: #e65100; }
+.grade-fail  .quiz-grade-label { background: rgba(229,57,53,0.10); color: #c62828; }
+
+/* Form fields */
+.quiz-submit-instruction {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.quiz-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.quiz-form input {
+  flex: 1 1 200px;
+  padding: 8px 12px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.quiz-form input:focus {
+  border-color: #4a86e8;
+}
+
+.quiz-form button {
+  padding: 8px 22px;
+  background: #4a86e8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.quiz-form button:hover  { background: #3a76d8; }
+.quiz-form button:disabled { background: #aaa; cursor: not-allowed; }
+
+/* Status message */
+#quiz-submit-status {
+  margin-top: 0.7rem;
+  font-size: 0.88rem;
+  min-height: 1.2em;
+}

@@ -1,0 +1,27 @@
+site_name: Pylogicx Academy
+docs_dir: docs
+
+theme:
+  name: material
+
+extra_css:
+  - stylesheets/quiz.css
+
+extra_javascript:
+  - javascripts/quiz.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Month 1 Quizzes:
+    - Week 1 — Variables & F-strings: quizzes/week01_quiz.md
+    - Week 2 — Conditionals & Casting: quizzes/week02_quiz.md
+    - Week 3 — Loops & os Module: quizzes/week03_quiz.md
+    - Week 4 — Functions & Scope: quizzes/week04_quiz.md
+    - Week 5 — Dictionaries & JSON: quizzes/week05_quiz.md
