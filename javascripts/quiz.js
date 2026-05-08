@@ -4,7 +4,7 @@
  * SETUP: Paste your Google Apps Script Web App URL below.
  * Leave it empty ("") and the submit button simply won't appear.
  */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw56iTPZ2D_tOgyVxR6tI2NXhu-MvtV8N-g1b1PtaUJc2hin_tEqrbhFExmfnCbywUiZA/exec";   // ← paste your Web App URL here
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw_fQkWlMoJjFqEk0NScIACjDvzX2-Pw4HXf-5H7CUvXTJfOfdbL79MPs79IDJM7G2A/exec";   // ← paste your Web App URL here
 
 // ── Page-level state ────────────────────────────────────────────────────────
 let quizState = {
@@ -178,11 +178,15 @@ function submitScore() {
     percentage:    Math.round((quizState.correct / quizState.total) * 100),
   };
 
-  // Google Apps Script requires no-cors mode
+  // URLSearchParams → sent as application/x-www-form-urlencoded
+  // This is the only Content-Type that works reliably with no-cors + Apps Script
+  const body = new URLSearchParams();
+  body.append("payload", JSON.stringify(payload));
+
   fetch(APPS_SCRIPT_URL, {
-    method:   "POST",
-    mode:     "no-cors",
-    body:     JSON.stringify(payload),
+    method: "POST",
+    mode:   "no-cors",   // response is opaque — .then() fires on network success
+    body:   body,
   })
   .then(function () {
     statusEl.innerHTML =
